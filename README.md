@@ -6,7 +6,7 @@
 This project builds an end-to-end big data pipeline using Hadoop and Spark to analyze S&P 500 stock market data. Phase 1 covers problem definition, data acquisition, HDFS ingestion, data cleaning, and exploratory data analysis.
 
 ### Dataset
-- **Source:** [Kaggle — S&P 500 Stock Data](https://www.kaggle.com/datasets/camnugent/sandp500) (CC0 Public Domain)
+- **Source:** [Kaggle — S&P 500 Stock Prices](https://www.kaggle.com/datasets/gauravmehta13/sp-500-stock-prices) (CC0 Public Domain)
 - **Size:** 497,472 rows × 7 columns
 - **Time Span:** January 2014 – December 2017
 - **Coverage:** 505 S&P 500 component stocks (daily OHLCV data)
@@ -45,7 +45,7 @@ pip install pandas numpy matplotlib seaborn jupyter
 ```
 
 #### 3. Download the dataset
-Download from [Kaggle](https://www.kaggle.com/datasets/camnugent/sandp500) and place the CSV file in the project root:
+Download from [Kaggle](https://www.kaggle.com/datasets/gauravmehta13/sp-500-stock-prices) and place the CSV file in the project root:
 ```
 S&P 500 Stock Prices 2014-2017.csv
 ```
