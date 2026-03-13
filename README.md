@@ -31,6 +31,65 @@ This project builds an end-to-end big data pipeline using Hadoop and Spark to an
 | Task 4 | Data Cleaning (6 operations) | 25 pts |
 | Task 5 | Exploratory Data Analysis (6 EDA operations) | 25 pts |
 
+### How to Reproduce
+
+#### 1. Clone the repo
+```bash
+git clone https://github.com/QiangWu769/-cse587-phase1.git
+cd -cse587-phase1
+```
+
+#### 2. Install dependencies
+```bash
+pip install pandas numpy matplotlib seaborn jupyter
+```
+
+#### 3. Download the dataset
+Download from [Kaggle](https://www.kaggle.com/datasets/camnugent/sandp500) and place the CSV file in the project root:
+```
+S&P 500 Stock Prices 2014-2017.csv
+```
+
+#### 4. Run the notebooks
+```bash
+jupyter notebook phase1_task4_5.ipynb
+```
+This will execute data cleaning (Task 4) and EDA (Task 5), and generate `cleaned_sp500.csv`.
+
+#### 5. HDFS ingestion (Task 3)
+```bash
+# Start Hadoop via Docker
+docker pull apache/hadoop:3
+docker run -d --name hadoop --platform linux/amd64 \
+  -v "$(pwd):/data" apache/hadoop:3 sleep infinity
+
+# Inside the container: configure and start HDFS
+docker exec hadoop bash -c "
+  export HADOOP_HOME=/opt/hadoop
+  export PATH=\$HADOOP_HOME/bin:\$HADOOP_HOME/sbin:\$PATH
+  cat > \$HADOOP_HOME/etc/hadoop/core-site.xml << 'EOF'
+<configuration>
+  <property><name>fs.defaultFS</name><value>hdfs://localhost:9000</value></property>
+</configuration>
+EOF
+  cat > \$HADOOP_HOME/etc/hadoop/hdfs-site.xml << 'EOF'
+<configuration>
+  <property><name>dfs.replication</name><value>1</value></property>
+</configuration>
+EOF
+  hdfs namenode -format -force
+  hdfs namenode &
+  sleep 5
+  hdfs datanode &
+  sleep 5
+  hdfs dfs -mkdir -p /user/project/raw
+  hdfs dfs -mkdir -p /user/project/cleaned
+  hdfs dfs -put '/data/S&P 500 Stock Prices 2014-2017.csv' /user/project/raw/
+  hdfs dfs -put /data/cleaned_sp500.csv /user/project/cleaned/
+  hdfs dfs -ls -R /user/project/
+"
+```
+
 ### Tools Used
 - Python (pandas, matplotlib, seaborn)
 - Jupyter Notebook
