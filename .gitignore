@@ -1,4 +1,6 @@
-*.csv
+# Large data files
+S&P*.csv
+cleaned_sp500.csv
 *.zip
 __pycache__/
 .ipynb_checkpoints/
