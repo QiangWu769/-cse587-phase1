@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Phase1_Report_executed</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Phase1_Report</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7516,8 +7516,14 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="CSE-4/587-%E2%80%94-End-to-End-Big-Data-Pipeline">CSE 4/587 — End-to-End Big Data Pipeline<a class="anchor-link" href="#CSE-4/587-%E2%80%94-End-to-End-Big-Data-Pipeline">¶</a></h1><h1 id="Project-Phase-1-Report">Project Phase 1 Report<a class="anchor-link" href="#Project-Phase-1-Report">¶</a></h1><p><strong>Dataset:</strong> S&amp;P 500 Stock Prices (2014–2017)</p>
-<p><strong>Team Members:</strong> [Member 1 Name (UBID)], [Member 2 Name (UBID)], [Member 3 Name (UBID)]</p>
+<h1 id="CSE-4/587-%E2%80%94-End-to-End-Big-Data-Pipeline">CSE 4/587 — End-to-End Big Data Pipeline<a class="anchor-link" href="#CSE-4/587-%E2%80%94-End-to-End-Big-Data-Pipeline">¶</a></h1><h1 id="Project-Phase-1-Report">Project Phase 1 Report<a class="anchor-link" href="#Project-Phase-1-Report">¶</a></h1><p><strong>Project Title:</strong> Stock Movement Prediction</p>
+<p><strong>Dataset:</strong> S&amp;P 500 Stock Prices (2014–2017)</p>
+<p><strong>Team Members:</strong></p>
+<ul>
+<li>Harshvardhan Shinde (hdshinde) — hdshinde@buffalo.edu</li>
+<li>Lorenzo Price (lorenzop) — lorenzop@buffalo.edu</li>
+<li>Qiang Wu (qiangwu2) — qiangwu2@buffalo.edu</li>
+</ul>
 <p><strong>Date:</strong> March 14, 2026</p>
 <hr/>
 </div>
@@ -7530,23 +7536,55 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Task-1:-Problem-Statement-(20-pts)">Task 1: Problem Statement (20 pts)<a class="anchor-link" href="#Task-1:-Problem-Statement-(20-pts)">¶</a></h2><h3 id="Project-Title">Project Title<a class="anchor-link" href="#Project-Title">¶</a></h3><p><em>[TO BE FILLED BY TEAMMATE]</em></p>
-<h3 id="Problem-Description-&amp;-Motivation">Problem Description &amp; Motivation<a class="anchor-link" href="#Problem-Description-&amp;-Motivation">¶</a></h3><p><em>[TO BE FILLED BY TEAMMATE]</em></p>
-<h3 id="Stakeholders">Stakeholders<a class="anchor-link" href="#Stakeholders">¶</a></h3><p><em>[TO BE FILLED BY TEAMMATE]</em></p>
-<h3 id="Machine-Learning-Problem-Statements-(N=3)">Machine Learning Problem Statements (N=3)<a class="anchor-link" href="#Machine-Learning-Problem-Statements-(N=3)">¶</a></h3><ol>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
-</ol>
+<h2 id="Task-1:-Problem-Statement-(20-pts)">Task 1: Problem Statement (20 pts)<a class="anchor-link" href="#Task-1:-Problem-Statement-(20-pts)">¶</a></h2><h3 id="Project-Title">Project Title<a class="anchor-link" href="#Project-Title">¶</a></h3><p><strong>Stock Movement Prediction Using S&amp;P 500 Historical Data</strong></p>
+<h3 id="Problem-Description-&amp;-Motivation">Problem Description &amp; Motivation<a class="anchor-link" href="#Problem-Description-&amp;-Motivation">¶</a></h3><p>The stock market is one of the most complex and dynamic financial systems, influenced by countless factors ranging from macroeconomic indicators to investor sentiment. Predicting stock movements has been a long-standing challenge in both finance and computer science. With the availability of large-scale historical trading data, machine learning provides a data-driven approach to uncovering patterns that traditional financial models may miss.</p>
+<p>This project uses the <strong>S&amp;P 500 Stock Prices (2014–2017)</strong> dataset, which contains daily OHLCV (Open, High, Low, Close, Volume) data for 505 stocks over 1,006 trading days. By augmenting this data with sector and company information, we aim to build predictive models that can assist investors, portfolio managers, and financial analysts in making more informed decisions.</p>
+<h3 id="Stakeholders">Stakeholders<a class="anchor-link" href="#Stakeholders">¶</a></h3><ul>
+<li><strong>Retail and Institutional Investors:</strong> Benefit from data-driven signals to optimize buy/sell decisions.</li>
+<li><strong>Portfolio Managers:</strong> Use sector-level insights and risk metrics for portfolio diversification and rebalancing.</li>
+<li><strong>Financial Analysts:</strong> Leverage automated pattern detection to supplement fundamental analysis.</li>
+<li><strong>Risk Management Teams:</strong> Identify high-volatility stocks and sector-level risk concentrations.</li>
+</ul>
+<h3 id="Machine-Learning-Problem-Statements-(N=3)">Machine Learning Problem Statements (N=3)<a class="anchor-link" href="#Machine-Learning-Problem-Statements-(N=3)">¶</a></h3><p><strong>Problem 1: Classification — Predict Daily Stock Price Direction</strong>
+Given a stock's historical features (previous closing price, volume, daily return, price range, sector, and temporal features), predict whether the stock's closing price will go <strong>up or down</strong> on the next trading day. This is a binary classification problem. Success metric: accuracy, F1-score, and AUC-ROC. Algorithms to explore include Logistic Regression, Random Forest, and Gradient Boosting (XGBoost).</p>
+<p><strong>Problem 2: Regression — Forecast Daily Percentage Return</strong>
+Given the same feature set, predict the <strong>exact percentage change</strong> in a stock's price for the next trading day. This is a continuous regression problem. Success metric: RMSE, MAE, and R². Algorithms to explore include Linear Regression, Ridge/Lasso Regression, and Support Vector Regression (SVR).</p>
+<p><strong>Problem 3: Clustering — Group Stocks by Trading Behavior</strong>
+Using features such as average daily return, volatility (standard deviation of returns), average volume, and price range, <strong>cluster stocks into groups</strong> with similar trading profiles. This is an unsupervised learning problem that can reveal natural market segments beyond the GICS sector classification. Success metric: silhouette score, Davies-Bouldin index. Algorithms to explore include K-Means, DBSCAN, and Hierarchical Clustering.</p>
 <h3 id="Data-Analysis-Objectives-(2N=6)">Data Analysis Objectives (2N=6)<a class="anchor-link" href="#Data-Analysis-Objectives-(2N=6)">¶</a></h3><ol>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
-<li><em>[TO BE FILLED BY TEAMMATE]</em></li>
+<li><strong>Analyze the distribution and statistical properties of daily returns</strong> across all stocks to understand the baseline behavior and identify deviations from normality.</li>
+<li><strong>Examine sector-level performance differences</strong> (average return, volatility, volume) to determine whether sector is a meaningful predictor for ML models.</li>
+<li><strong>Investigate temporal patterns</strong> in stock prices and volume (day-of-week effects, monthly seasonality, yearly trends) that could serve as time-based features.</li>
+<li><strong>Compute and visualize feature correlations</strong> to identify redundant features (e.g., OHLC multicollinearity) and guide feature selection for modeling.</li>
+<li><strong>Profile stock-level volatility</strong> to identify high-risk and low-risk stocks, informing the clustering problem and risk-aware model design.</li>
+<li><strong>Detect volume anomalies and regime changes</strong> (e.g., market crashes, major events) to understand how external shocks affect trading behavior and model robustness.</li>
 </ol>
-<h3 id="Input-%E2%86%92-Output-Specification">Input → Output Specification<a class="anchor-link" href="#Input-%E2%86%92-Output-Specification">¶</a></h3><p><em>[TO BE FILLED BY TEAMMATE]</em></p>
+<h3 id="Input-%E2%86%92-Output-Specification">Input → Output Specification<a class="anchor-link" href="#Input-%E2%86%92-Output-Specification">¶</a></h3><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Input Features</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classification</td>
+<td>close, log_volume, daily_return (lagged), price_range, sector, day_of_week, month</td>
+<td>Binary label: 1 (price up) or 0 (price down)</td>
+</tr>
+<tr>
+<td>Regression</td>
+<td>close, log_volume, daily_return (lagged), price_range, sector, day_of_week, month</td>
+<td>Continuous value: next-day percentage return</td>
+</tr>
+<tr>
+<td>Clustering</td>
+<td>mean_return, volatility, avg_volume, avg_price_range, sector (encoded)</td>
+<td>Cluster assignment (integer label)</td>
+</tr>
+</tbody>
+</table>
 <hr/>
 </div>
 </div>
@@ -8120,13 +8158,7 @@ low       float64
 close     float64
 volume      int64
 dtype: object
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+
 === After Type Conversion ===
 symbol            object
 date      datetime64[ns]
@@ -8139,7 +8171,13 @@ dtype: object
 
 Date range: 2014-01-02 to 2017-12-29
 Total trading days: 1007
-Unique symbols: 505
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Unique symbols: 505
 </pre>
 </div>
 </div>
@@ -8202,7 +8240,13 @@ Unique symbols: 505
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Duplicate (symbol, date) pairs: 0
-Zero/negative volume rows: 0
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Zero/negative volume rows: 0
 Rows where high &lt; low: 1
 Rows with non-positive prices: 0
 
@@ -8287,13 +8331,7 @@ Materials                 26
 Communication Services    23
 Energy                    22
 Name: count, dtype: int64
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+
 Rows after merge: 497,460 (unchanged from 497,460)
 </pre>
 </div>
