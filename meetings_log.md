@@ -1,21 +1,34 @@
 # Meetings Log — CSE 4/587 Phase 1
 
-## Meeting 1 — March 10, 2026
-- **Attendees:** All members
+## Meeting 1 — March 3, 2026
+- **Attendees:** Harshvardhan Shinde, Lorenzo Price, Qiang Wu
 - **Discussion:**
   - Decided on dataset: S&P 500 Stock Prices 2014-2017 (Kaggle)
-  - Assigned Task 1 (Problem Statement) to [Member 1]
+  - Discussed project scope and Phase 1 requirements
+  - Assigned Task 1 (Problem Statement) to Harshvardhan
   - Assigned Tasks 2-5 to Qiang Wu
+  - Lorenzo to assist with review and testing
 - **Action Items:**
-  - [Member 1]: Write problem statement, ML tasks, and analysis objectives
-  - Qiang Wu: Data acquisition, HDFS setup, cleaning, EDA
+  - Harshvardhan: Draft problem statement, ML tasks, and analysis objectives
+  - Qiang Wu: Start data acquisition and HDFS setup
 
-## Meeting 2 — March 12, 2026
-- **Attendees:** All members
+## Meeting 2 — March 8, 2026
+- **Attendees:** Harshvardhan Shinde, Lorenzo Price, Qiang Wu
 - **Discussion:**
-  - Reviewed progress on Tasks 2-5
-  - [Member 1] working on Task 1
+  - Qiang Wu presented progress on Tasks 2-5 (data cleaning and EDA done)
+  - Reviewed HDFS setup via Docker
+  - Harshvardhan shared initial Task 1 draft
+  - Discussed adding sector data to enrich the dataset
+- **Action Items:**
+  - Harshvardhan: Revise Task 1 with 3 distinct ML problems (classification, regression, clustering)
+  - Qiang Wu: Merge sector data, finalize cleaning and EDA
+
+## Meeting 3 — March 12, 2026
+- **Attendees:** Harshvardhan Shinde, Lorenzo Price, Qiang Wu
+- **Discussion:**
+  - All tasks completed
+  - Reviewed full report together
   - Discussed Phase 2 modeling directions
 - **Action Items:**
-  - Finalize report and combine all sections
-  - Submit by March 14 deadline
+  - Finalize report PDF and compile submission zip
+  - Submit by deadline
