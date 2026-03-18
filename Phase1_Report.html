@@ -7525,11 +7525,32 @@ a.anchor-link {
 <h1 id="CSE-4/587-%E2%80%94-End-to-End-Big-Data-Pipeline">CSE 4/587 — End-to-End Big Data Pipeline<a class="anchor-link" href="#CSE-4/587-%E2%80%94-End-to-End-Big-Data-Pipeline">¶</a></h1><h1 id="Project-Phase-1-Report">Project Phase 1 Report<a class="anchor-link" href="#Project-Phase-1-Report">¶</a></h1><p><strong>Project Title:</strong> Stock Movement Prediction</p>
 <p><strong>Dataset:</strong> S&amp;P 500 Stock Prices (2014–2017)</p>
 <p><strong>Team Members:</strong></p>
-<ul>
-<li>Harshvardhan Shinde (hdshinde) — hdshinde@buffalo.edu</li>
-<li>Lorenzo Price (lorenzop) — lorenzop@buffalo.edu</li>
-<li>Qiang Wu (qiangwu2) — qiangwu2@buffalo.edu</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>UBIT</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harshvardhan Shinde</td>
+<td>hdshinde</td>
+<td>hdshinde@buffalo.edu</td>
+</tr>
+<tr>
+<td>Lorenzo Price</td>
+<td>lorenzop</td>
+<td>lorenzop@buffalo.edu</td>
+</tr>
+<tr>
+<td>Qiang Wu</td>
+<td>qiangwu2</td>
+<td>qiangwu2@buffalo.edu</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Date:</strong> March 14, 2026</p>
 <hr/>
 </div>
@@ -7545,12 +7566,32 @@ a.anchor-link {
 <h2 id="Task-1:-Problem-Statement-(20-pts)">Task 1: Problem Statement (20 pts)<a class="anchor-link" href="#Task-1:-Problem-Statement-(20-pts)">¶</a></h2><h3 id="Project-Title">Project Title<a class="anchor-link" href="#Project-Title">¶</a></h3><p><strong>Stock Movement Prediction Using S&amp;P 500 Historical Data</strong></p>
 <h3 id="Problem-Description-&amp;-Motivation">Problem Description &amp; Motivation<a class="anchor-link" href="#Problem-Description-&amp;-Motivation">¶</a></h3><p>Stock prices change every day based on supply and demand, company earnings, broader economic trends, and sometimes just market sentiment. While no one can perfectly predict the market, historical price and volume data contain patterns that machine learning models can pick up on — things like how a stock tends to behave after a big volume spike, or whether certain sectors move together.</p>
 <p>Our dataset covers daily trading data (open, high, low, close, volume) for 505 S&amp;P 500 stocks from 2014 to 2017. That gives us roughly 500K rows to work with. We also pulled in sector information for each company so we can do sector-level comparisons. The goal is to see how well we can predict price movements and identify meaningful groupings among stocks using this data.</p>
-<h3 id="Stakeholders">Stakeholders<a class="anchor-link" href="#Stakeholders">¶</a></h3><ul>
-<li><strong>Individual investors</strong> who want quantitative signals to help with buy/sell timing</li>
-<li><strong>Portfolio managers</strong> looking at sector-level risk and diversification</li>
-<li><strong>Analysts</strong> who could use automated pattern detection alongside their own research</li>
-<li><strong>Risk teams</strong> that need to flag unusually volatile stocks or sectors</li>
-</ul>
+<h3 id="Stakeholders">Stakeholders<a class="anchor-link" href="#Stakeholders">¶</a></h3><table>
+<thead>
+<tr>
+<th>Stakeholder</th>
+<th>Interest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Individual investors</td>
+<td>Quantitative signals to help with buy/sell timing</td>
+</tr>
+<tr>
+<td>Portfolio managers</td>
+<td>Sector-level risk insights for diversification</td>
+</tr>
+<tr>
+<td>Analysts</td>
+<td>Automated pattern detection to supplement their own research</td>
+</tr>
+<tr>
+<td>Risk teams</td>
+<td>Flagging unusually volatile stocks or sectors</td>
+</tr>
+</tbody>
+</table>
 <h3 id="Machine-Learning-Problem-Statements-(N=3)">Machine Learning Problem Statements (N=3)<a class="anchor-link" href="#Machine-Learning-Problem-Statements-(N=3)">¶</a></h3><p><strong>Problem 1: Classification — Predict Whether a Stock Goes Up or Down</strong>
 We want to predict whether a stock's closing price will be higher or lower than its open on a given day. The input features include lagged returns, volume, price range, sector, and day of the week. We'll try Logistic Regression as a baseline, then Random Forest and XGBoost to see if non-linear models do better. We'll evaluate using accuracy, F1-score, and AUC-ROC.</p>
 <p><strong>Problem 2: Regression — Predict the Actual Percentage Return</strong>
@@ -8099,7 +8140,13 @@ Stocks with missing values:
 278801     UA  2016-04-07   NaN    NaN    NaN
 308365    FTV  2016-07-01   NaN    NaN    NaN
 442107    BHF  2017-07-26   NaN    NaN    NaN
-
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
 Rows before: 497,472 → Rows after: 497,461 (removed 11)
 </pre>
 </div>
@@ -8164,7 +8211,13 @@ low       float64
 close     float64
 volume      int64
 dtype: object
-
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
 === After Type Conversion ===
 symbol            object
 date      datetime64[ns]
@@ -8177,13 +8230,7 @@ dtype: object
 
 Date range: 2014-01-02 to 2017-12-29
 Total trading days: 1007
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Unique symbols: 505
+Unique symbols: 505
 </pre>
 </div>
 </div>
@@ -8246,14 +8293,26 @@ Total trading days: 1007
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Duplicate (symbol, date) pairs: 0
-Zero/negative volume rows: 0
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Zero/negative volume rows: 0
 Rows where high &lt; low: 1
 Rows with non-positive prices: 0
 
 Anomalous rows found:
       symbol       date   open    high    low   close   volume
 45501    AOS 2014-05-19  23.89  23.595  23.85  24.445  1944854
-
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
 Rows before: 497,461 → Rows after: 497,460 (removed 1)
 </pre>
 </div>
@@ -8331,15 +8390,15 @@ Materials                 26
 Communication Services    23
 Energy                    22
 Name: count, dtype: int64
+
+Rows after merge: 497,460 (unchanged from 497,460)
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-Rows after merge: 497,460 (unchanged from 497,460)
-Symbols without sector match: 145
+<pre>Symbols without sector match: 145
 </pre>
 </div>
 </div>
@@ -8381,7 +8440,13 @@ Symbols without sector match: 145
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>=== Sector Distribution After Merge ===
-sector
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>sector
 Unknown                   145
 Financials                 55
 Industrials                53
@@ -8686,7 +8751,13 @@ Shape: 497,460 rows × 16 columns
 Columns: ['symbol', 'date', 'open', 'high', 'low', 'close', 'volume', 'company_name', 'sector', 'sub_industry', 'daily_return', 'price_range', 'log_volume', 'day_of_week', 'year', 'month']
 Date range: 2014-01-02 to 2017-12-29
 Unique symbols: 505
-Sectors: 12
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Sectors: 12
 
 === Data Types ===
 symbol                  object
@@ -9321,11 +9392,28 @@ Name: volatility, dtype: float64
 </tr>
 </tbody>
 </table>
-<h3 id="What-This-Means-for-Phase-2">What This Means for Phase 2<a class="anchor-link" href="#What-This-Means-for-Phase-2">¶</a></h3><ul>
-<li><strong>Features to use:</strong> <code>close</code>, <code>log_volume</code>, <code>daily_return</code>, <code>price_range</code>, <code>sector</code>, <code>day_of_week</code> — not all OHLC columns</li>
-<li><strong>Model choice:</strong> Tree-based models (Random Forest, XGBoost) since the data has fat tails</li>
-<li><strong>Evaluation:</strong> Check performance by sector, not just overall accuracy</li>
-</ul>
+<h3 id="What-This-Means-for-Phase-2">What This Means for Phase 2<a class="anchor-link" href="#What-This-Means-for-Phase-2">¶</a></h3><table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Features to use</td>
+<td><code>close</code>, <code>log_volume</code>, <code>daily_return</code>, <code>price_range</code>, <code>sector</code>, <code>day_of_week</code> — not all OHLC columns</td>
+</tr>
+<tr>
+<td>Model choice</td>
+<td>Tree-based models (Random Forest, XGBoost) since the data has fat tails</td>
+</tr>
+<tr>
+<td>Evaluation</td>
+<td>Check performance by sector, not just overall accuracy</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
